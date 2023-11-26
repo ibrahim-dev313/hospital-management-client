@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { pageTitle } from '../../Functions/DynamicTitle';
 import { AuthContext } from '../../Providers/AuthProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 const apiKey = "0ba87e91e7fbba273fe1b44a2122ae93"
 const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${apiKey}`
-const Register = () => {
-    pageTitle('Sign Up');
 
+
+const Register = () => {
+    pageTitle('Register');
+    const navigate = useNavigate()
 
     const { registerUser, updateProfileInfo, setPhotoURL } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic()
@@ -35,16 +37,16 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         const { name, email, password, photoURL, bloodGroup, district, upazila } = data;
-
+        // console.log(upazila);
         const userData = {
-            name,
-            email,
-            bloodGroup,
-            district,
-            upazila,
+            name: name,
+            email: email,
+            bloodGroup: bloodGroup,
+            district: district,
+            upazila: upazila,
             status: 'active'
         };
-
+        // console.log(userData);
         try {
             // Register the user
             setLoading(true)
@@ -76,17 +78,17 @@ const Register = () => {
                 });
                 console.log(userResponse.response);
                 if (userResponse.data.insertedId) {
-                    toast.success('user added to database')
+                    console.log(userResponse.data);
+                    // toast.success('user added to database')
                 }
-
-
                 setLoading(false)
-                toast.success("Profile Updated Successfully");
+                // toast.success("Profile Updated Successfully");
+                // navigate('/dashboard')
             } else {
                 toast.error("Image upload failed. Profile update aborted.");
             }
 
-            //navigate("/");
+            navigate("/");
 
         } catch (err) {
             if (err.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -97,7 +99,7 @@ const Register = () => {
 
 
     };
-    console.log(districts, upazilas);
+    // console.log(districts, upazilas);
     return (
         <div className="w-full min-h-screen hero">
             {loading ?
@@ -132,7 +134,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="font-semibold label-text">Blood Group</span>
                                 </label>
-                                <select defaultValue={'default'} name="" {...register('blood-group', { required: true })} className='w-full select select-bordered'>
+                                <select defaultValue={'default'} name="" {...register('bloodGroup', { required: true })} className='w-full select select-bordered'>
                                     <option disabled value="default">Select Blood Group</option>
                                     {bloodGroupOptions.map((group, index) => (
                                         <option key={index} value={group}>{group}</option>
@@ -155,7 +157,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="font-semibold label-text">Upazila</span>
                                 </label>
-                                <select defaultValue={'default'} {...register('district', { required: true })} className='w-full select select-bordered'>
+                                <select defaultValue={'default'} {...register('upazila', { required: true })} className='w-full select select-bordered'>
                                     <option disabled value="default">Select District</option>
                                     {
                                         upazilas.map(upazila => <option key={upazila.id} value={upazila.name}>{upazila.name}</option>)
