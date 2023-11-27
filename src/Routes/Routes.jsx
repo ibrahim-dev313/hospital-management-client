@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import Admin from "../Layout/Admin";
 import Main from "../Layout/Main";
 import UserDashboard from "../Layout/UserDashboard";
+import AllUsers from "../Pages/Admin/AllUsers";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: < MyProfile />
+            }
+        ]
+    },
+    {
+        path: "/admin",
+        element: <Admin></Admin>,
+        children: [
+            {
+                path: '/admin',
+                element: < AllUsers />
             }
         ]
     },

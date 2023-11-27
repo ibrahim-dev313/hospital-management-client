@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
-const UserDashboard = () => {
+const Admin = () => {
     return (
         <div className='flex'>
             <div className="w-64 min-h-screen bg-green-200">
@@ -9,9 +9,9 @@ const UserDashboard = () => {
                 <h1 className="px-4 pb-4 font-bold text-center no-animation btn-block">Dashboard</h1>
 
                 <ul className="font-semibold menu">
-                    <li><NavLink to={'/dashboard'}>My Profile</NavLink></li>
-                    <li><NavLink to={'/dashboard/appointments'}>Appointments</NavLink></li>
-                    <li><NavLink to={'/dashboard/appointments'}>Test Results</NavLink></li>
+                    <li><NavLink to={'/admin'}>All Users</NavLink></li>
+                    <li><NavLink to={'/admin/add-test'}>Add Test</NavLink></li>
+                    <li><NavLink to={'/admin/all-tests'}></NavLink></li>
                 </ul>
                 <div className='divider'></div>
                 <ul className="font-semibold menu">
@@ -28,4 +28,4 @@ const UserDashboard = () => {
     );
 };
 
-export default UserDashboard;
+export default Admin;

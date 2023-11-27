@@ -1,0 +1,352 @@
+[
+    {
+        "id": 1,
+        "name": "Complete Blood Count (CBC)",
+        "description": "Measures different components of the blood.",
+        "price": 40,
+        "category": "Hematology",
+        "image": "cbc_image.jpg",
+        "availableDates": [
+            "2023-12-01",
+            "2023-12-05",
+            "2023-12-10"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 2,
+        "name": "Lipid Profile",
+        "description": "Measures cholesterol and triglycerides levels.",
+        "price": 50,
+        "category": "Cardiology",
+        "image": "lipid_profile_image.jpg",
+        "availableDates": [
+            "2023-12-02",
+            "2023-12-08",
+            "2023-12-12"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 3,
+        "name": "Liver Function Tests (LFT)",
+        "description": "Checks the health of the liver.",
+        "price": 45,
+        "category": "Gastroenterology",
+        "image": "lft_image.jpg",
+        "availableDates": [
+            "2023-12-03",
+            "2023-12-06",
+            "2023-12-11"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 4,
+        "name": "Thyroid Function Tests (TFT)",
+        "description": "Evaluates thyroid gland function.",
+        "price": 35,
+        "category": "Endocrinology",
+        "image": "tft_image.jpg",
+        "availableDates": [
+            "2023-12-04",
+            "2023-12-07",
+            "2023-12-09"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 5,
+        "name": "Blood Glucose Test",
+        "description": "Measures the amount of sugar in your blood.",
+        "price": 30,
+        "category": "Endocrinology",
+        "image": "blood_glucose_image.jpg",
+        "availableDates": [
+            "2023-12-05",
+            "2023-12-08",
+            "2023-12-10"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 6,
+        "name": "Kidney Function Tests (KFT)",
+        "description": "Assesses kidney health.",
+        "price": 55,
+        "category": "Nephrology",
+        "image": "kft_image.jpg",
+        "availableDates": [
+            "2023-12-06",
+            "2023-12-07",
+            "2023-12-12"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 7,
+        "name": "Electrocardiogram (ECG)",
+        "description": "Records the electrical activity of the heart.",
+        "price": 60,
+        "category": "Cardiology",
+        "image": "ecg_image.jpg",
+        "availableDates": [
+            "2023-12-01",
+            "2023-12-09",
+            "2023-12-11"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 8,
+        "name": "X-ray",
+        "description": "Captures images of the inside of your body.",
+        "price": 75,
+        "category": "Radiology",
+        "image": "xray_image.jpg",
+        "availableDates": [
+            "2023-12-02",
+            "2023-12-06",
+            "2023-12-10"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 9,
+        "name": "Hepatitis Panel",
+        "description": "Tests for different types of hepatitis infections.",
+        "price": 40,
+        "category": "Infectious Disease",
+        "image": "hepatitis_panel_image.jpg",
+        "availableDates": [
+            "2023-12-03",
+            "2023-12-07",
+            "2023-12-09"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 10,
+        "name": "Pulmonary Function Tests (PFT)",
+        "description": "Measures lung function.",
+        "price": 65,
+        "category": "Pulmonology",
+        "image": "pft_image.jpg",
+        "availableDates": [
+            "2023-12-04",
+            "2023-12-05",
+            "2023-12-11"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 11,
+        "name": "Cancer Antigen 125 (CA-125)",
+        "description": "Used to monitor certain cancers.",
+        "price": 50,
+        "category": "Oncology",
+        "image": "ca125_image.jpg",
+        "availableDates": [
+            "2023-12-01",
+            "2023-12-08",
+            "2023-12-12"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 12,
+        "name": "Prostate-Specific Antigen (PSA) Test",
+        "description": "Screens for prostate cancer.",
+        "price": 45,
+        "category": "Urology",
+        "image": "psa_test_image.jpg",
+        "availableDates": [
+            "2023-12-02",
+            "2023-12-06",
+            "2023-12-10"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 13,
+        "name": "Allergy Testing",
+        "description": "Identifies allergic reactions.",
+        "price": 55,
+        "category": "Allergology",
+        "image": "allergy_testing_image.jpg",
+        "availableDates": [
+            "2023-12-03",
+            "2023-12-07",
+            "2023-12-09"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 14,
+        "name": "Vitamin D Test",
+        "description": "Measures the level of vitamin D in the body.",
+        "price": 35,
+        "category": "Nutrition",
+        "image": "vitamin_d_test_image.jpg",
+        "availableDates": [
+            "2023-12-04",
+            "2023-12-05",
+            "2023-12-11"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 15,
+        "name": "STD Panel",
+        "description": "Tests for various sexually transmitted diseases.",
+        "price": 60,
+        "category": "Infectious Disease",
+        "image": "std_panel_image.jpg",
+        "availableDates": [
+            "2023-12-05",
+            "2023-12-08",
+            "2023-12-10"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 16,
+        "name": "Magnetic Resonance Imaging (MRI)",
+        "description": "Produces detailed images of the body's internal structures.",
+        "price": 90,
+        "category": "Radiology",
+        "image": "mri_image.jpg",
+        "availableDates": [
+            "2024-01-15",
+            "2024-01-20",
+            "2024-01-25"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 17,
+        "name": "Bone Density Test",
+        "description": "Measures bone mineral density for osteoporosis risk.",
+        "price": 55,
+        "category": "Orthopedics",
+        "image": "bone_density_image.jpg",
+        "availableDates": [
+            "2024-01-18",
+            "2024-01-22",
+            "2024-01-28"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 18,
+        "name": "C-reactive Protein (CRP) Test",
+        "description": "Indicates inflammation in the body.",
+        "price": 40,
+        "category": "Rheumatology",
+        "image": "crp_test_image.jpg",
+        "availableDates": [
+            "2024-01-17",
+            "2024-01-21",
+            "2024-01-26"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 19,
+        "name": "Pap Smear",
+        "description": "Screens for cervical cancer in women.",
+        "price": 65,
+        "category": "Gynecology",
+        "image": "pap_smear_image.jpg",
+        "availableDates": [
+            "2024-01-16",
+            "2024-01-23",
+            "2024-01-27"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 20,
+        "name": "Genetic Testing",
+        "description": "Analyzes DNA for inherited diseases and conditions.",
+        "price": 80,
+        "category": "Genetics",
+        "image": "genetic_testing_image.jpg",
+        "availableDates": [
+            "2024-01-19",
+            "2024-01-24",
+            "2024-01-29"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 21,
+        "name": "Fecal Occult Blood Test (FOBT)",
+        "description": "Detects blood in the stool, an early sign of colorectal cancer.",
+        "price": 30,
+        "category": "Gastroenterology",
+        "image": "fobt_image.jpg",
+        "availableDates": [
+            "2024-01-20",
+            "2024-01-26",
+            "2024-02-01"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 22,
+        "name": "CT Scan",
+        "description": "Uses X-rays to create detailed cross-sectional images of the body.",
+        "price": 75,
+        "category": "Radiology",
+        "image": "ct_scan_image.jpg",
+        "availableDates": [
+            "2024-01-21",
+            "2024-01-25",
+            "2024-02-02"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 23,
+        "name": "HIV Test",
+        "description": "Detects the presence of the human immunodeficiency virus.",
+        "price": 50,
+        "category": "Infectious Disease",
+        "image": "hiv_test_image.jpg",
+        "availableDates": [
+            "2024-01-22",
+            "2024-01-27",
+            "2024-02-03"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 24,
+        "name": "Colonoscopy",
+        "description": "Examines the large intestine for abnormalities.",
+        "price": 85,
+        "category": "Gastroenterology",
+        "image": "colonoscopy_image.jpg",
+        "availableDates": [
+            "2024-01-23",
+            "2024-01-29",
+            "2024-02-04"
+        ],
+        "slots": 15
+    },
+    {
+        "id": 25,
+        "name": "Sleep Study",
+        "description": "Monitors sleep patterns to diagnose sleep disorders.",
+        "price": 70,
+        "category": "Neurology",
+        "image": "sleep_study_image.jpg",
+        "availableDates": [
+            "2024-01-24",
+            "2024-01-28",
+            "2024-02-05"
+        ],
+        "slots": 15
+    }
+]

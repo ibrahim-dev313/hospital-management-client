@@ -127,7 +127,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="font-semibold label-text">Photo</span>
                                 </label>
-                                <input type="file" className="w-full max-w-lg file-input file-input-bordered" {...register('photoURL', { required: true })} />
+                                <input type="file" accept="image/x-png,image/gif,image/jpeg,image/png,image/jpg" className="w-full max-w-lg file-input file-input-bordered" {...register('photoURL', { required: true })} />
                                 {errors.photoURL && <span className=" text-error">Photo URL is required</span>}
                             </div>
                             <div className="form-control">

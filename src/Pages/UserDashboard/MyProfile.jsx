@@ -20,7 +20,7 @@ const MyProfile = () => {
     const [upazilas, setUpazilas] = useState([])
 
     const { user, updateProfileInfo, setPhotoURL } = useContext(AuthContext);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, resetField, formState: { errors } } = useForm();
     const bloodGroupOptions = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
 
@@ -73,7 +73,7 @@ const MyProfile = () => {
                     console.log(userResponse);
                 }
                 toast.success("Profile Updated Successfully");
-                reset()
+                resetField('photoURL')
                 refetch();
             } catch (error) {
                 toast.error("Image upload failed. Profile update aborted.");
@@ -93,7 +93,7 @@ const MyProfile = () => {
                     // toast.success('user added to database')
                 }
                 toast.success("Profile Updated Successfully");
-                reset()
+                // reset()
                 refetch();
             } catch (error) {
                 toast.error("Profile update failed.");
@@ -177,7 +177,7 @@ const MyProfile = () => {
                                     <label className="label">
                                         <span className="font-semibold label-text">Photo</span>
                                     </label>
-                                    <input type="file" className="w-full max-w-lg file-input file-input-bordered" {...register('photoURL', {})} />
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg,image/png,image/jpg" className="w-full max-w-lg file-input file-input-bordered" {...register('photoURL', {})} />
                                     {errors.photoURL && <span className=" text-error">Photo URL is required</span>}
                                 </div>
 
