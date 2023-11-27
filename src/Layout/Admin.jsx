@@ -9,9 +9,9 @@ const Admin = () => {
                 <h1 className="px-4 pb-4 font-bold text-center no-animation btn-block">Dashboard</h1>
 
                 <ul className="font-semibold menu">
-                    <li><NavLink to={'/admin'}>All Users</NavLink></li>
-                    <li><NavLink to={'/admin/add-test'}>Add Test</NavLink></li>
-                    <li><NavLink to={'/admin/all-tests'}></NavLink></li>
+                    <li><NavLink to={'admin'}>All Users</NavLink></li>
+                    <li><NavLink to={'add-test'}>Add Test</NavLink></li>
+                    <li><NavLink to={'all-tests'}></NavLink></li>
                 </ul>
                 <div className='divider'></div>
                 <ul className="font-semibold menu">

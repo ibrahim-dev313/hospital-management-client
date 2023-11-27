@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Admin from "../Layout/Admin";
 import Main from "../Layout/Main";
 import UserDashboard from "../Layout/UserDashboard";
+import AddTest from "../Pages/Admin/AddTest";
 import AllUsers from "../Pages/Admin/AllUsers";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
@@ -42,13 +43,17 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: "/admin",
+        path: "admin",
         element: <Admin></Admin>,
         children: [
             {
-                path: '/admin',
+                path: 'admin',
                 element: < AllUsers />
-            }
+            },
+            {
+                path: 'add-test',
+                element: < AddTest />
+            },
         ]
     },
 ]);
