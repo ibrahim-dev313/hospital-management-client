@@ -3,6 +3,7 @@ import Admin from "../Layout/Admin";
 import Main from "../Layout/Main";
 import UserDashboard from "../Layout/UserDashboard";
 import AddTest from "../Pages/Admin/AddTest";
+import AllTests from "../Pages/Admin/AllTests";
 import AllUsers from "../Pages/Admin/AllUsers";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: 'add-test',
                 element: < AddTest />
+            },
+            {
+                path: 'all-tests',
+                element: < AllTests />
             },
         ]
     },
