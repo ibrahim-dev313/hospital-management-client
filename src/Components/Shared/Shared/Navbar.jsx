@@ -22,6 +22,7 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                            <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
 
 
 
@@ -43,6 +44,7 @@ const Navbar = () => {
                     <ul className="px-1 menu menu-horizontal">
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                        <li><NavLink to='/admin'>Admin</NavLink></li>
 
 
 

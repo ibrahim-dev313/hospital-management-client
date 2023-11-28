@@ -9,9 +9,11 @@ const Admin = () => {
                 <h1 className="px-4 pb-4 font-bold text-center no-animation btn-block">Dashboard</h1>
 
                 <ul className="font-semibold menu">
-                    <li><NavLink to={'admin'}>All Users</NavLink></li>
+                    <li><NavLink to={'all-users'}>All Users</NavLink></li>
                     <li><NavLink to={'add-test'}>Add Test</NavLink></li>
                     <li><NavLink to={'all-tests'}>All Tests</NavLink></li>
+                    <li><NavLink to={'add-banner'}>Add Banner</NavLink></li>
+                    <li><NavLink to={'all-banners'}>All Banners</NavLink></li>
                 </ul>
                 <div className='divider'></div>
                 <ul className="font-semibold menu">

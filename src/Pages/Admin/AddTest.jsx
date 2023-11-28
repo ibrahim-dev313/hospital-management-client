@@ -80,7 +80,7 @@ const AddTest = () => {
                     </div>
 
                     <div className="mt-6">
-                        <button type="submit" className="px-4 py-2 text-white bg-blue-500 rounded-md">
+                        <button type="submit" className="font-bold text-white uppercase bg-green-600 rounded-md hover:bg-green-700 btn btn-block">
                             Add Test
                         </button>
                     </div>
