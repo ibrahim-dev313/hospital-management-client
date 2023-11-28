@@ -37,7 +37,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className="h-full text-xl normal-case btn btn-ghost">
-                        <img className="h-12 text-2xl font-bold" src="https://i.ibb.co/dj88QYw/20231106-225521-0000-removebg-preview.png" alt="" /> SpaceJobs
+                        Al Shifa Diagnostics
                     </Link>
                 </div>
                 <div className="hidden navbar-center lg:flex">
@@ -73,6 +73,8 @@ const Navbar = () => {
                                         {
                                             user?.email ?
                                                 <>
+                                                    <li><NavLink to='/dashboard'>My Profile</NavLink></li>
+
 
                                                     <li><button className="" onClick={handleLogOut}>Log Out</button></li>
                                                 </> :

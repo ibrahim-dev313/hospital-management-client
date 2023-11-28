@@ -1,9 +1,10 @@
-import React from 'react';
+import Banner from '../Components/Shared/Shared/Banner';
 
 const Home = () => {
+
     return (
         <div>
-            Home
+            <Banner />
         </div>
     );
 };
