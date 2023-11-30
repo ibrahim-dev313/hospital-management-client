@@ -7,12 +7,13 @@ import useAllTests from '../../hooks/useAllTests';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import BookModal from './BookModal';
 
-const stripePromise = loadStripe(import.meta.env.VITE_PK)
+const stripePromise = loadStripe(import.meta.env.VITE_PK);
 const TestDetails = () => {
-    const [, , loading, loader] = useAllTests()
+    const [, , loading, loader] = useAllTests();
+
     const axiosPublic = useAxiosPublic();
     const { id } = useParams();
-    const [modalLoading, setModalLoading] = useState(true)
+    const [modalLoading, setModalLoading] = useState(true);
     const [testData, setTestData] = useState(null);
     const [availableSlots, setAvailableSlots] = useState(0);
     const [bookingStatus, setBookingStatus] = useState('pending');
@@ -21,8 +22,7 @@ const TestDetails = () => {
         const fetchTestDetails = async () => {
             try {
                 const response = await axiosPublic.get(`/test/${id}`);
-                const { availableSlots } = response.data; // Adjust based on your API response structure
-                // console.log(response.data);
+                const { availableSlots } = response.data;
                 setTestData(response.data);
                 setAvailableSlots(availableSlots);
                 setBookingStatus(status);
@@ -34,11 +34,16 @@ const TestDetails = () => {
         fetchTestDetails();
     }, [axiosPublic, id]);
 
+    const openModal = () => {
+        document.getElementById('my_modal_1').showModal();
+    };
 
     return (
         <>
-            {
-                loading ? loader : <div className="m-8 card glass rounded-r-xl">
+            {loading ? (
+                loader
+            ) : (
+                <div className="m-8 card glass rounded-r-xl">
                     {testData && (
                         <div className='flex flex-row '>
                             <figure>
@@ -50,19 +55,17 @@ const TestDetails = () => {
                                 <p>Available Slots: {availableSlots}</p>
                                 <p> {testData.testDescription}</p>
                                 {availableSlots > 0 && (
-                                    <button className="font-bold uppercase bg-green-500 btn hover:bg-green-700" onClick={() => document.getElementById('my_modal_1').showModal()}>Book Now</button>
-
+                                    <button className="font-bold uppercase bg-green-500 btn hover:bg-green-700" onClick={openModal}>Book Now</button>
                                 )}
                             </div>
                         </div>
                     )}
 
-
                     <Elements stripe={stripePromise}>
-                        <BookModal testData={testData} loading={modalLoading} setLoading={setModalLoading}></BookModal>
+                        <BookModal testData={testData} loading={modalLoading} setLoading={setModalLoading} openModal={openModal} />
                     </Elements>
                 </div>
-            }
+            )}
         </>
     );
 };
