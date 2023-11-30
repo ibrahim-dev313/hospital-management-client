@@ -7,6 +7,8 @@ import AddTest from "../Pages/Admin/AddTest";
 import AllBanners from "../Pages/Admin/AllBanners";
 import AllTests from "../Pages/Admin/AllTests";
 import AllUsers from "../Pages/Admin/AllUsers";
+import AllTestsPage from "../Pages/AllTests/AllTestsPage";
+import TestDetails from "../Pages/AllTests/TestDetails";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
@@ -23,6 +25,16 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+
+            },
+            {
+                path: "/alltests",
+                element: <AllTestsPage></AllTestsPage>,
+
+            },
+            {
+                path: "/test/:id",
+                element: <TestDetails></TestDetails>,
 
             },
         ]

@@ -44,7 +44,8 @@ const Register = () => {
             bloodGroup: bloodGroup,
             district: district,
             upazila: upazila,
-            status: 'active'
+            status: 'active',
+            userType: 'user'
         };
         // console.log(userData);
         try {

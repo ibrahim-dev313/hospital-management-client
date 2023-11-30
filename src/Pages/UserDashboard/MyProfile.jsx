@@ -12,7 +12,7 @@ const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${apiKey}`
 
 const MyProfile = () => {
     pageTitle('My Profile');
-    const [userData, refetch] = useProfile()
+    const [userData, refetch, loading] = useProfile()
     const { _id, name, email, district, bloodGroup, upazila, status } = userData;
     const axiosPublic = useAxiosPublic()
     // console.log(userData);
@@ -105,10 +105,13 @@ const MyProfile = () => {
     return (
         <>
             {
-                !email ? <div>Loading...</div> :
-                    <div className="flex items-center justify-center w-full min-h-screen">
-                        <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
-                            <h1 className="mb-4 text-2xl font-bold">My Profile</h1>
+                loading ? <div className='flex flex-col items-center justify-center min-h-screen gap-9'>
+                    <span className="flex items-center justify-center w-32 text-green-800 loading loading-bars "></span>
+
+                </div> :
+                    <div className="flex items-center justify-center w-full min-h-screen ">
+                        <div className="w-full max-w-xl p-4 bg-white border-4 shadow-xl rounded-xl">
+                            <h1 className="mb-4 text-3xl font-bold">My Profile</h1>
                             <div className='flex justify-center avatar'>
                                 <div className="rounded-full w-36">
                                     <img className='rounded-full' src={user.photoURL} alt="" />

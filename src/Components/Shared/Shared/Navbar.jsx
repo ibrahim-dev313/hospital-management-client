@@ -2,10 +2,13 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import useProfile from "../../../hooks/useProfile";
 
 const Navbar = () => {
     const { user, logout, photoURL } = useContext(AuthContext)
-
+    const [userData] = useProfile()
+    // console.log(loading);
+    // console.log(userData);
     const handleLogOut = () => {
         logout()
             .then(toast.success("Logged Out Successfully"))
@@ -21,8 +24,12 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><NavLink to='/'>Home</NavLink></li>
-                            <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                            <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
+                            <li><NavLink to='/alltests'>All Tests</NavLink></li>
+
+                            {
+                                userData?.userType == 'admin' ? <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
+                                    : <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                            }
 
 
 
@@ -43,8 +50,11 @@ const Navbar = () => {
                 <div className="hidden navbar-center lg:flex">
                     <ul className="px-1 menu menu-horizontal">
                         <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                        <li><NavLink to='/admin'>Admin</NavLink></li>
+                        <li><NavLink to='/alltests'>All Tests</NavLink></li>
+                        {
+                            userData && userData.userType ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                                : <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
+                        }
 
 
 

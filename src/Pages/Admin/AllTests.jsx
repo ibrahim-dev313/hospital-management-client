@@ -173,6 +173,17 @@ const AllTests = () => {
                             />
                             {errors.availableSlots && <p className="text-red-500">{errors.availableSlots.message}</p>}
                         </div>
+                        <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-600">Test Fee</label>
+                            <input
+                                defaultValue={selectedTest.testFee}
+                                type="number"
+
+                                className="w-full p-2 mt-1 border rounded-md"
+                                {...register('testFee', { required: 'Test Fee is required' })}
+                            />
+                            {errors.testFee && <p className="text-red-500">{errors.TestFee.message}</p>}
+                        </div>
 
 
 
