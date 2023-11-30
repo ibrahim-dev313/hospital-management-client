@@ -1,7 +1,7 @@
 // TestDetailsPage.js
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useAllTests from '../../hooks/useAllTests';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
@@ -34,9 +34,6 @@ const TestDetails = () => {
         fetchTestDetails();
     }, [axiosPublic, id]);
 
-    const handleBookNow = () => {
-
-    };
 
     return (
         <>

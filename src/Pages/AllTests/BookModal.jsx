@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -6,14 +7,14 @@ import useAllBanners from '../../hooks/useAllBanners';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
-const BookModal = ({ testData, loading, setLoading }) => {
+const BookModal = ({ testData }) => {
     const [allBanners] = useAllBanners()
     // console.log(allBanners);
     const filtered = allBanners.find(banner => banner.isActive == true)
     const { couponCode, couponRate } = filtered;
     // console.log(filtered);
 
-    const { register, setValue } = useForm();
+    const { setValue } = useForm();
 
     const [netPrice, setNetPrice] = useState(testData?.testFee);
     const stripe = useStripe();
@@ -39,7 +40,7 @@ const BookModal = ({ testData, loading, setLoading }) => {
     };
 
 
-    const calculateNetPrice = (basePrice, promoCode) => {
+    const calculateNetPrice = (basePrice) => {
 
         const discountPercentage = couponRate;
         const discount = (basePrice * discountPercentage) / 100;
