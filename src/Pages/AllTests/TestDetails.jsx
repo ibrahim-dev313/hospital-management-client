@@ -10,7 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PK);
 const TestDetails = () => {
 
     const { id } = useParams();
-
+    console.log(id);
     // Destructure values from useTest hook
     const [testData, refetch, loading] = useTest(id);
 

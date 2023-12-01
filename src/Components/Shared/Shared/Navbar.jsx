@@ -5,8 +5,8 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import useProfile from "../../../hooks/useProfile";
 
 const Navbar = () => {
-    const { user, logout, photoURL } = useContext(AuthContext)
-    const [userData] = useProfile()
+    const { user, logout, photoURL, loading } = useContext(AuthContext)
+    const [userData, , profileLoading] = useProfile()
     // console.log(loading);
     // console.log(userData);
     const handleLogOut = () => {
@@ -27,10 +27,10 @@ const Navbar = () => {
                             <li><NavLink to='/alltests'>All Tests</NavLink></li>
 
                             {
-                                userData?.userType == 'admin' ? <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
-                                    : <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                                userData?.userType == 'user' ? <></>
+                                    : <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
                             }
-
+                            <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
 
 
                             {
@@ -52,9 +52,10 @@ const Navbar = () => {
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/alltests'>All Tests</NavLink></li>
                         {
-                            userData && userData.userType ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
-                                : <li><NavLink to='/admin/all-users'>Admin</NavLink></li>
+                            user && userData && userData.userType == 'user' ? <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                                : <><li><NavLink to='/admin/all-users'>Admin</NavLink></li></>
                         }
+
 
 
 
@@ -83,7 +84,7 @@ const Navbar = () => {
                                         {
                                             user?.email ?
                                                 <>
-                                                    <li><NavLink to='/dashboard'>My Profile</NavLink></li>
+                                                    <li><NavLink to='/dashboard/my-profile'>My Profile</NavLink></li>
 
 
                                                     <li><button className="" onClick={handleLogOut}>Log Out</button></li>

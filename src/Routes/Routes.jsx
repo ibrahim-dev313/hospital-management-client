@@ -7,13 +7,16 @@ import AddTest from "../Pages/Admin/AddTest";
 import AllBanners from "../Pages/Admin/AllBanners";
 import AllTests from "../Pages/Admin/AllTests";
 import AllUsers from "../Pages/Admin/AllUsers";
+import Reservations from "../Pages/Admin/Reservations";
 import AllTestsPage from "../Pages/AllTests/AllTestsPage";
 import TestDetails from "../Pages/AllTests/TestDetails";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home";
+import Appointments from "../Pages/UserDashboard/Appointments";
 import MyProfile from "../Pages/UserDashboard/MyProfile";
+import TestResults from "../Pages/UserDashboard/TestResults";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -52,9 +55,17 @@ const router = createBrowserRouter([
         element: <PrivateRoute><UserDashboard></UserDashboard></PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
+                path: '/dashboard/my-profile',
                 element: <MyProfile />
-            }
+            },
+            {
+                path: '/dashboard/appointments',
+                element: <Appointments />
+            },
+            {
+                path: '/dashboard/test-results',
+                element: <TestResults />
+            },
         ]
     },
     {
@@ -74,12 +85,17 @@ const router = createBrowserRouter([
                 element: <AddBanner />
             },
             {
+                path: 'all-banners',
+                element: <AllBanners />
+            },
+            {
                 path: 'all-tests',
                 element: <AllTests />
             },
+
             {
-                path: 'all-banners',
-                element: <AllBanners />
+                path: 'reservations',
+                element: <Reservations />
             },
         ]
     },

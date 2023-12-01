@@ -14,6 +14,7 @@ const Admin = () => {
                     <li><NavLink to={'all-tests'}>All Tests</NavLink></li>
                     <li><NavLink to={'add-banner'}>Add Banner</NavLink></li>
                     <li><NavLink to={'all-banners'}>All Banners</NavLink></li>
+                    <li><NavLink to={'reservations'}>Reservations</NavLink></li>
                 </ul>
                 <div className='divider'></div>
                 <ul className="font-semibold menu">

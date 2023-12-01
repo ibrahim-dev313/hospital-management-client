@@ -34,7 +34,7 @@ const BookModal = ({ testData, refetch }) => {
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price: netPrice })
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 setClientSecret(res.data.clientSecret);
             });
     }, [axiosSecure, netPrice]);
@@ -44,7 +44,7 @@ const BookModal = ({ testData, refetch }) => {
 
         if (promoCode !== couponCode) {
             setNetPrice(testData?.testFee);
-            setPromoMessage(''); // Reset promo message
+            setPromoMessage('');
         } else if (promoCode === couponCode) {
             const updatedNetPrice = calculateNetPrice(parseInt(testData?.testFee), couponRate);
             setNetPrice(parseInt(updatedNetPrice));
@@ -68,7 +68,7 @@ const BookModal = ({ testData, refetch }) => {
         patientName: userData.name,
         reportStatus: 'pending'
     }
-    console.log(reservationData);
+    // console.log(reservationData);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
