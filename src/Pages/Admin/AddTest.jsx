@@ -7,6 +7,7 @@ const AddTest = () => {
     const axiosPublic = useAxiosPublic()
     const onSubmit = async (data) => {
         // Handle form submission here
+        console.log(data);
         try {
             const response = await axiosPublic.post("/test", data, {
                 headers: {
@@ -62,9 +63,19 @@ const AddTest = () => {
                         <input
                             type="number"
                             className="w-full p-2 mt-1 border rounded-md"
-                            {...register('availableSlots', { required: 'Available Slots is required' })}
+                            {...register('availableSlots', { required: 'Available Slots is required', valueAsNumber: true })}
                         />
                         {errors.availableSlots && <p className="text-red-500">{errors.availableSlots.message}</p>}
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-600">Test Fee</label>
+                        <input
+                            type="number"
+                            className="w-full p-2 mt-1 border rounded-md"
+                            {...register('testFee', { required: 'Test Fee is required', valueAsNumber: true })}
+                        />
+                        {errors.testFee && <p className="text-red-500">{errors.testFee.message}</p>}
                     </div>
 
 

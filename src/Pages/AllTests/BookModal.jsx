@@ -7,12 +7,14 @@ import Loader from '../../Components/Loader';
 import useAllBanners from '../../hooks/useAllBanners';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useProfile from '../../hooks/useProfile';
 
-const BookModal = ({ testData, openModal }) => {
+const BookModal = ({ testData, refetch }) => {
     const [allBanners] = useAllBanners();
     const { user } = useAuth();
+    const [userData, , loading] = useProfile()
     const [clientSecret, setClientSecret] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const [netPrice, setNetPrice] = useState(testData?.testFee);
     const [promoMessage, setPromoMessage] = useState('');
@@ -28,7 +30,7 @@ const BookModal = ({ testData, openModal }) => {
             setNetPrice(testData.testFee);
         }
     }, [testData]);
-
+    // console.log(userData);
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price: netPrice })
             .then((res) => {
@@ -58,7 +60,15 @@ const BookModal = ({ testData, openModal }) => {
         const discount = (basePrice * discountPercentage) / 100;
         return basePrice - discount;
     };
-
+    const reservationData = {
+        testId: testData._id,
+        testName: testData.testName,
+        testDate: testData.testDate,
+        patientEmail: userData.email,
+        patientName: userData.name,
+        reportStatus: 'pending'
+    }
+    console.log(reservationData);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -102,17 +112,36 @@ const BookModal = ({ testData, openModal }) => {
 
             if (paymentIntent.status === 'succeeded') {
                 // Close the modal upon successful payment
-                document.getElementById('my_modal_1').close();
+                try {
+                    const response = await axiosSecure.put('/confirm-payment', { testId: testData._id });
 
-                // Notify the user of successful payment
-                toast.success('Payment Successful');
+                    if (response.data.success) {
+                        try {
+                            const response = await axiosSecure.post("/reservations", reservationData, {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                            });
+                            console.log(response.data);
+                        } catch (error) {
+                            console.log(error);
+                        }
+                        refetch()
+                    } else {
+                        console.error('Failed to update available slots:', response.data.message);
+                    }
+                } catch (error) {
+                    console.error('Error updating available slots:', error);
+                }
+                document.getElementById('my_modal_1').close();
+                toast.success('Payment & Booking successful!');
             }
         }
     };
 
     return (
         <>
-            {!testData ? (
+            {!testData && !loading ? (
                 <Loader />
             ) : (
                 <>

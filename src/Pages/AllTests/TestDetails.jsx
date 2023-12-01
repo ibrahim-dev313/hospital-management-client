@@ -1,38 +1,18 @@
 // TestDetailsPage.js
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useAllTests from '../../hooks/useAllTests';
-import useAxiosPublic from '../../hooks/useAxiosPublic';
+import useTest from '../../hooks/useTest';
 import BookModal from './BookModal';
 
 const stripePromise = loadStripe(import.meta.env.VITE_PK);
+
 const TestDetails = () => {
-    const [, , loading, loader] = useAllTests();
 
-    const axiosPublic = useAxiosPublic();
     const { id } = useParams();
-    const [modalLoading, setModalLoading] = useState(true);
-    const [testData, setTestData] = useState(null);
-    const [availableSlots, setAvailableSlots] = useState(0);
-    const [bookingStatus, setBookingStatus] = useState('pending');
 
-    useEffect(() => {
-        const fetchTestDetails = async () => {
-            try {
-                const response = await axiosPublic.get(`/test/${id}`);
-                const { availableSlots } = response.data;
-                setTestData(response.data);
-                setAvailableSlots(availableSlots);
-                setBookingStatus(status);
-            } catch (error) {
-                console.error('Error fetching test details:', error);
-            }
-        };
-
-        fetchTestDetails();
-    }, [axiosPublic, id]);
+    // Destructure values from useTest hook
+    const [testData, refetch, loading] = useTest(id);
 
     const openModal = () => {
         document.getElementById('my_modal_1').showModal();
@@ -41,20 +21,20 @@ const TestDetails = () => {
     return (
         <>
             {loading ? (
-                loader
+                <></>
             ) : (
                 <div className="m-8 card glass rounded-r-xl">
                     {testData && (
                         <div className='flex flex-row '>
                             <figure>
-                                <img className='rounded-l-xl w-96' src={testData.testImage} alt={testData.testName} />
+                                <img className='h-full rounded-l-xl w-96' src={testData.testImage} alt={testData.testName} />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{testData.testName}</h2>
                                 <p>Test Date: {testData.testDate}</p>
-                                <p>Available Slots: {availableSlots}</p>
-                                <p> {testData.testDescription}</p>
-                                {availableSlots > 0 && (
+                                <p>Available Slots: {testData.availableSlots}</p>
+                                <p>{testData.testDescription}</p>
+                                {testData.availableSlots > 0 && (
                                     <button className="font-bold uppercase bg-green-500 btn hover:bg-green-700" onClick={openModal}>Book Now</button>
                                 )}
                             </div>
@@ -62,7 +42,7 @@ const TestDetails = () => {
                     )}
 
                     <Elements stripe={stripePromise}>
-                        <BookModal testData={testData} loading={modalLoading} setLoading={setModalLoading} openModal={openModal} />
+                        <BookModal testData={testData} refetch={refetch} loading={loading} openModal={openModal} />
                     </Elements>
                 </div>
             )}
