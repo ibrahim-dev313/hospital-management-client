@@ -1,6 +1,5 @@
 import { faAtom, faBrain, faCode, faDna, faFlask, faGlobe, faHeart, faMicroscope, faNetworkWired, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
 
 const ResearchPage = () => {
     const projects = [
