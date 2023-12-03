@@ -14,7 +14,7 @@ const Main = () => {
     return (
         <>
             {
-                loading && profileLoading && bannerlLading && userData ? <div className='flex flex-col items-center justify-center min-h-screen gap-9'>
+                loading && profileLoading && bannerlLading && userData.length == 0 ? <div className='flex flex-col items-center justify-center min-h-screen gap-9'>
                     <span className="flex items-center justify-center w-32 text-green-800 loading loading-bars "></span>
                     <h1 className='text-4xl font-bold'>Welcome To Al Shifa Diagnostics</h1>
                     <h1 className='flex gap-3 text-3xl'>Please Wait <span className="text-green-700 loading loading-dots loading-lg"></span></h1>

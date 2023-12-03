@@ -1,5 +1,3 @@
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -35,20 +33,7 @@ const Login = () => {
                 }
             })
     }
-    const handleGoogleSignIn = () => {
-        googleLogin()
-            .then(res => {
-                console.log(res.user)
-                toast.success("Log In Successful");
 
-                setTimeout(() => {
-                    navigate(location?.state ? location.state : "/");
-                }, 2000);
-
-            })
-
-            .catch(err => { console.error(err.message) })
-    }
     return (
         <div className="w-full min-h-screen hero ">
             <div className="flex-col w-full hero-content lg:flex-row ">
@@ -70,21 +55,12 @@ const Login = () => {
 
                         </div>
                         <div className="mt-6 form-control">
-                            <button className="btn btn-accent">Login</button>
+                            <button className="bg-green-500 hover:bg-green-600 btn">Login</button>
                         </div>
                         <div>
                             <p className='mb-4'>Don't have an account? <Link to={'/register'} href="#" className="underline text-primary underline-offset-4 link-hover">Register Here</Link></p>
-                            <p className="font-semibold text-center">Or</p>
-                            <div className='flex items-center justify-center gap-4 my-4'>
 
-                                <div onClick={handleGoogleSignIn} className='flex items-center justify-center rounded-full btn-accent btn'>
-                                    <div>
-                                        <FontAwesomeIcon icon={faGoogle} size='2xl' style={{ color: "black", }} />
-                                    </div>
-                                    <div>Continue with Google</div>
-                                </div>
 
-                            </div>
                         </div>
 
                     </form>

@@ -141,7 +141,7 @@ const BookModal = ({ testData, refetch }) => {
 
     return (
         <>
-            {!testData && !loading ? (
+            {!testData && !loading && userData.length === 0 ? (
                 <Loader />
             ) : (
                 <>
@@ -206,9 +206,15 @@ const BookModal = ({ testData, refetch }) => {
                                         }}
                                     />
                                 </div>
-                                <button className="rounded-xl btn-block btn btn-success" disabled={!stripe || !clientSecret}>
+
+                                <button
+                                    className={`rounded-xl btn-block btn btn-success ${userData.status === 'blocked' && 'disabled'}`}
+                                    disabled={!stripe || !clientSecret}
+                                >
                                     Pay
                                 </button>
+
+
                             </form>
                         </div>
                     </dialog>

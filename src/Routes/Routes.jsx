@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Admin from "../Layout/Admin";
 import Main from "../Layout/Main";
 import UserDashboard from "../Layout/UserDashboard";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBanner from "../Pages/Admin/AddBanner";
 import AddTest from "../Pages/Admin/AddTest";
 import AllBanners from "../Pages/Admin/AllBanners";
@@ -12,11 +13,14 @@ import AllTestsPage from "../Pages/AllTests/AllTestsPage";
 import TestDetails from "../Pages/AllTests/TestDetails";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
+import BlogPage from "../Pages/BlogPage/BlogPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home";
+import ResearchPage from "../Pages/ResearchPage/ReserchPage";
 import Appointments from "../Pages/UserDashboard/Appointments";
 import MyProfile from "../Pages/UserDashboard/MyProfile";
 import TestResults from "../Pages/UserDashboard/TestResults";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -36,8 +40,23 @@ const router = createBrowserRouter([
 
             },
             {
+                path: "/about-us",
+                element: <AboutUs></AboutUs>,
+
+            },
+            {
+                path: "/blogs",
+                element: <BlogPage></BlogPage>,
+
+            },
+            {
+                path: "/rnd",
+                element: <ResearchPage></ResearchPage>,
+
+            },
+            {
                 path: "/test/:id",
-                element: <TestDetails></TestDetails>,
+                element: <PrivateRoute><TestDetails></TestDetails></PrivateRoute>,
 
             },
         ]
@@ -70,7 +89,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: <Admin></Admin>,
+        element: <AdminRoute><Admin></Admin></AdminRoute>,
         children: [
             {
                 path: 'all-users',

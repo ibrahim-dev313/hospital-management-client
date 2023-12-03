@@ -2,16 +2,18 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
+import Loader from '../../Components/Loader';
+import useProfile from '../../hooks/useProfile';
 import useTest from '../../hooks/useTest';
 import BookModal from './BookModal';
 
 const stripePromise = loadStripe(import.meta.env.VITE_PK);
 
 const TestDetails = () => {
+    const [userData, , profileLoading] = useProfile()
 
     const { id } = useParams();
-    console.log(id);
-    // Destructure values from useTest hook
+
     const [testData, refetch, loading] = useTest(id);
 
     const openModal = () => {
@@ -21,7 +23,7 @@ const TestDetails = () => {
     return (
         <>
             {loading ? (
-                <></>
+                <Loader></Loader>
             ) : (
                 <div className="m-8 card glass rounded-r-xl">
                     {testData && (
@@ -35,7 +37,10 @@ const TestDetails = () => {
                                 <p>Available Slots: {testData.availableSlots}</p>
                                 <p>{testData.testDescription}</p>
                                 {testData.availableSlots > 0 && (
-                                    <button className="font-bold uppercase bg-green-500 btn hover:bg-green-700" onClick={openModal}>Book Now</button>
+                                    <>
+                                        <button className="font-bold uppercase bg-green-500 btn hover:bg-green-700" onClick={openModal} disabled={userData.status == 'blocked'}>Book Now</button>
+                                        {userData.status == 'blocked' && <div className='p-0 m-0 text-error'>You are Blocked and cannot book a test</div>}
+                                    </>
                                 )}
                             </div>
                         </div>

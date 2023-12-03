@@ -170,8 +170,10 @@ const Register = () => {
                                 <label className="label">
                                     <span className="font-semibold label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="Your Password" className="input input-bordered" {...register('password', { required: true })} />
+                                <input type="password" placeholder="Your Password" className="input input-bordered" {...register('password', { required: true, })} />
                                 {errors.password && <span className=" text-error">Password is required</span>}
+
+
                                 <div className="mt-6 form-control">
                                     <button className="btn btn-accent">Sign Up</button>
                                 </div>

@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="grid grid-flow-row gap-3 text-xl font-">
                     <div className='flex items-center justify-center gap-2'>
                         <FontAwesomeIcon icon={faMapMarker} />
-                        <span>Gulshan Avenue, Dhaka</span>
+                        <span>Bashundhara R/A, Dhaka</span>
                     </div>
                     <div className='flex items-center justify-center gap-2'>
                         <FontAwesomeIcon icon={faPhone} />

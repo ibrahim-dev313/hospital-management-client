@@ -14,6 +14,7 @@ const MyProfile = () => {
     pageTitle('My Profile');
     const [userData, refetch, loading] = useProfile()
     const { _id, name, email, district, bloodGroup, upazila, status } = userData;
+    // console.log(userData);
     const axiosPublic = useAxiosPublic()
     // console.log(userData);
     const [districts, setDistricts] = useState([])
@@ -135,6 +136,18 @@ const MyProfile = () => {
                                         defaultValue={name}
                                     />
                                     {errors.name && <span className="text-error">Name is required</span>}
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="font-semibold label-text">Email</span>
+                                    </label>
+                                    <input
+                                        type="text" disabled
+                                        className="input input-bordered disabled"
+
+                                        defaultValue={email || user.email}
+                                    />
+
                                 </div>
 
                                 <div className="form-control">
