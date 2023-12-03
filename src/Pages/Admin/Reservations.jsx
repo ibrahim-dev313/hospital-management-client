@@ -1,4 +1,4 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
@@ -61,7 +61,7 @@ const Reservations = () => {
 
     const handleUpdate = async (data) => {
         const reportData = {
-            report: data.reportPdf,
+            reportPdf: data.reportPdf,
             reportStatus: 'delivered'
         };
 
@@ -104,7 +104,6 @@ const Reservations = () => {
                 />
             </div>
 
-
             {loading ? (
                 <Loader></Loader>
             ) : (
@@ -125,6 +124,9 @@ const Reservations = () => {
                                     <td className="text-center">{reservation.patientEmail}</td>
                                     <td className="text-center">{reservation.testDate}</td>
                                     <td className="flex items-center justify-center gap-1">
+                                        <div onClick={() => handleOpenModal(reservation)} className="btn btn-circle">
+                                            <FontAwesomeIcon icon={faPenToSquare} size="xl" />
+                                        </div>
                                         <div
                                             onClick={() => handleDeleteReservation(reservation._id)}
                                             className="font-bold text-red-600 uppercase btn"
@@ -136,6 +138,31 @@ const Reservations = () => {
                             ))}
                         </tbody>
                     </table>
+                    {isModalOpen && selectedTest && (
+                        <dialog id="my_modal_1" className="modal" open>
+                            <form onSubmit={handleSubmit(handleUpdate)} className="relative p-8 bg-green-300 border-8 border-green-100 rounded-md modal-box">
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-600">Report File URL</label>
+                                    <input
+                                        type="text"
+                                        defaultValue={selectedTest.reportPdf}
+                                        className="w-full p-2 mt-1 border rounded-md"
+                                        {...register('reportPdf', { required: 'Report file URL is required' })}
+                                    />
+                                    {errors.reportPdf && <p className="text-red-500">{errors.reportPdf.message}</p>}
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-3 mt-6">
+                                    <div className="text-white uppercase bg-red-500 border-0 hover:bg-red-600 btn btn-block" onClick={handleCloseModal}>
+                                        Close
+                                    </div>
+                                    <button className="text-white uppercase bg-green-500 border-0 hover:bg-green-600 btn btn-block">
+                                        Update Test
+                                    </button>
+                                </div>
+                            </form>
+                        </dialog>
+                    )}
                 </div>
             )}
         </>

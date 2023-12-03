@@ -113,9 +113,9 @@ const BookModal = ({ testData, refetch }) => {
             if (paymentIntent.status === 'succeeded') {
                 // Close the modal upon successful payment
                 try {
-                    const response = await axiosSecure.put('/confirm-payment', { testId: testData._id });
-
-                    if (response.data.success) {
+                    const response = await axiosSecure.put('/confirm', { testId: testData._id });
+                    console.log(response);
+                    if (response.data) {
                         try {
                             const response = await axiosSecure.post("/reservations", reservationData, {
                                 headers: {

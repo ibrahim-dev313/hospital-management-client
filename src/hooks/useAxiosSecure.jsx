@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-    baseURL: "https://diagnostic-server-omega.vercel.app/"
+    baseURL: "https://diagnostic-server-mi1357.vercel.app"
 })
 const useAxiosSecure = () => {
     return axiosSecure
