@@ -101,7 +101,7 @@ const Register = () => {
                 toast.error("Image upload failed. Profile update aborted.");
             }
 
-            navigate("/");
+            navigate("/dashboard");
 
         } catch (err) {
             if (err.message === "Firebase: Error (auth/email-already-in-use).") {

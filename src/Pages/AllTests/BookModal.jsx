@@ -5,14 +5,12 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import Loader from '../../Components/Loader';
 import useAllBanners from '../../hooks/useAllBanners';
-import useAllTests from '../../hooks/useAllTests';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useProfile from '../../hooks/useProfile';
 
-const BookModal = ({ testData }) => {
+const BookModal = ({ testData, refetch }) => {
     const [allBanners] = useAllBanners();
-    const [, refetch] = useAllTests();
 
     const { user } = useAuth();
     const [userData, , loading] = useProfile()
