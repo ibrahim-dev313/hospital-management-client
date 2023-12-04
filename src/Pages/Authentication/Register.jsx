@@ -16,7 +16,7 @@ const Register = () => {
     const { registerUser, updateProfileInfo, setPhotoURL } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
 
-    const { register, handleSubmit, watch, setError, formState: { errors } } = useForm();
+    const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [districts, setDistricts] = useState([]);
     const [upazilas, setUpazilas] = useState([]);
     const [loading, setLoading] = useState(false);
