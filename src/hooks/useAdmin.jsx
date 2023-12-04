@@ -8,6 +8,7 @@ const useAdmin = () => {
     const { user, loading } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [isAdmin, setIsAdmin] = useState(false)
+    const [adminLoading, setAdminLoading] = useState(true)
     const { data } = useQuery({
         queryKey: [user?.email, 'userType'],
         queryFn: async () => {
@@ -19,10 +20,11 @@ const useAdmin = () => {
             } else if (res.data.userType == 'user') {
                 setIsAdmin(false)
             }
+            setAdminLoading(false)
             return res.data?.userType;
         }
     })
-    return [isAdmin, loading, data]
+    return [isAdmin, loading, data, adminLoading]
 };
 
 export default useAdmin;

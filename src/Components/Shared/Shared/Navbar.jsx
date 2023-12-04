@@ -8,7 +8,7 @@ import useProfile from "../../../hooks/useProfile";
 const Navbar = () => {
     const { user, logout, photoURL, loading } = useContext(AuthContext)
     const [userData, , profileLoading] = useProfile()
-    const [isAdmin] = useAdmin();
+    const [isAdmin, , , adminLoading] = useAdmin();
     // console.log(loading);
     // console.log(userData);
     const handleLogOut = () => {
@@ -24,10 +24,12 @@ const Navbar = () => {
         <li><NavLink to='/rnd'>Our Research</NavLink></li>
 
         {
-            user && isAdmin && <li><Link to="/admin">Admin Dashboard</Link></li>
-        }
-        {
-            user && !isAdmin && <li><Link to="/dashboard">User Dashboard</Link></li>
+            adminLoading ? <></> : <> {
+                user && isAdmin && <li><Link to="/admin">Admin Dashboard</Link></li>
+            }
+                {
+                    user && !isAdmin && <li><Link to="/dashboard">User Dashboard</Link></li>
+                }</>
         }
 
 
