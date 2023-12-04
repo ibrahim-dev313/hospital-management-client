@@ -1,8 +1,11 @@
 import { faBrain, faHeart, faMicroscope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { pageTitle } from '../../Functions/DynamicTitle';
 
 const BlogPage = () => {
+    pageTitle("Blog Page")
+
     const blogs = [
         {
             id: 1,

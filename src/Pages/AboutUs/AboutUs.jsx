@@ -1,8 +1,11 @@
 import { faBuilding, faHeart, faHospital } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Map, Marker, Overlay } from 'pigeon-maps';
+import { pageTitle } from '../../Functions/DynamicTitle';
 
 const AboutUs = () => {
+    pageTitle("About Us")
+
     const center = [23.8103, 90.4125]; // Replace with the latitude and longitude of Bashundhara R/A, Dhaka
 
     return (

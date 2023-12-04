@@ -2,10 +2,13 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { pageTitle } from '../../Functions/DynamicTitle';
 import useAllUsers from '../../hooks/useAllUsers';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const AllUsers = () => {
+    pageTitle("All Users")
+
     const [usersData, refetch] = useAllUsers()
     // console.log(usersData);
     const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,6 +1,9 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { pageTitle } from '../Functions/DynamicTitle';
 
 const Admin = () => {
+    pageTitle("Admin Dashboard")
+
     return (
         <div className='flex'>
             <div className="w-64 min-h-screen bg-green-200">

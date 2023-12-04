@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Loader from '../../Components/Loader';
 import useAllReservations from '../../hooks/useAllReservations';
 import useProfile from '../../hooks/useProfile';
 
@@ -21,7 +22,7 @@ const TestResults = () => {
     }, [reservations, userData.email]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loader></Loader>
     }
 
     return (

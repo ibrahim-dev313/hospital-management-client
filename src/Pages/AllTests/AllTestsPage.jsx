@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Loader from '../../Components/Loader';
+import { pageTitle } from '../../Functions/DynamicTitle';
 import useAllTests from '../../hooks/useAllTests';
 import TestCard from './TestCard';
 
 const AllTestsPage = () => {
+    pageTitle("All Tests")
+
     const [allTests, , loading] = useAllTests();
     const currentDate = new Date();
     const [searchDate, setSearchDate] = useState('');

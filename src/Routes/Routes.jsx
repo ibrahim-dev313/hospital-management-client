@@ -15,7 +15,7 @@ import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import BlogPage from "../Pages/BlogPage/BlogPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Home from "../Pages/Home";
+import Home from "../Pages/Home/Home";
 import ResearchPage from "../Pages/ResearchPage/ReserchPage";
 import Appointments from "../Pages/UserDashboard/Appointments";
 import MyProfile from "../Pages/UserDashboard/MyProfile";

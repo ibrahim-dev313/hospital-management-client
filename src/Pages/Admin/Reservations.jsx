@@ -11,7 +11,7 @@ import useAllReservations from "../../hooks/useAllReservations";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Reservations = () => {
-    pageTitle("All Tests");
+    pageTitle("Reservations");
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const [isModalOpen, setIsModalOpen] = useState(false);

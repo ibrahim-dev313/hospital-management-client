@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { pageTitle } from '../../Functions/DynamicTitle';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const AddTest = () => {
+    pageTitle("Add Test")
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const axiosPublic = useAxiosPublic()
     const onSubmit = async (data) => {

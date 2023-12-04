@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { pageTitle } from '../../Functions/DynamicTitle';
 
 const ErrorPage = () => {
+    pageTitle("Error 404")
+
     return (
         <>
             <main className="grid min-h-full px-6 py-24 bg-white place-items-center sm:py-32 lg:px-8">
@@ -12,7 +15,7 @@ const ErrorPage = () => {
                     <div className="flex items-center justify-center mt-10 gap-x-6">
                         <Link
                             to='/'
-                            className="font-bold text-black shadow-sm btn btn-accent "
+                            className="font-bold text-black bg-green-500 shadow-sm btn hover:bg-green-600 "
                         >
                             Go back Home
                         </Link>

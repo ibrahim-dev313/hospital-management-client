@@ -1,7 +1,10 @@
 import { faAtom, faBrain, faCode, faDna, faFlask, faGlobe, faHeart, faMicroscope, faNetworkWired, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { pageTitle } from '../../Functions/DynamicTitle';
 
 const ResearchPage = () => {
+    pageTitle("Our Research")
+
     const projects = [
         {
             id: 1,

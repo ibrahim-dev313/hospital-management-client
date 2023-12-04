@@ -3,6 +3,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
 import Loader from '../../Components/Loader';
+import { pageTitle } from '../../Functions/DynamicTitle';
 import useProfile from '../../hooks/useProfile';
 import useTest from '../../hooks/useTest';
 import BookModal from './BookModal';
@@ -10,11 +11,13 @@ import BookModal from './BookModal';
 const stripePromise = loadStripe(import.meta.env.VITE_PK);
 
 const TestDetails = () => {
+
     const [userData, , profileLoading] = useProfile()
 
     const { id } = useParams();
 
     const [testData, refetch, loading] = useTest(id);
+    pageTitle(`${testData?.testName || ''}`)
 
     const openModal = () => {
         document.getElementById('my_modal_1').showModal();
