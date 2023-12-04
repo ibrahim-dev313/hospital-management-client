@@ -1,14 +1,13 @@
-import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
-import { AuthContext } from "../providers/AuthProvider";
+import useAuth from "../hooks/useAuth";
 
 const AdminRoute = ({ children }) => {
-    const { user, loading } = useContext(AuthContext);
-    const [isAdmin, , data] = useAdmin();
+    const { user, loading } = useAuth();
+    const [isAdmin, , data, adminLoading] = useAdmin();
     const location = useLocation();
     console.log(data);
-    if (loading && !data) {
+    if (loading && adminLoading) {
         // Loading state, you can show a loading spinner or message
         return (
             <div className='flex flex-col items-center justify-center min-h-screen gap-9'>
@@ -17,17 +16,13 @@ const AdminRoute = ({ children }) => {
                 <h1 className='flex gap-3 text-3xl'>Please Wait <span className="text-green-700 loading loading-dots loading-lg"></span></h1>
             </div>
         );
-    } else if (!user) {
-        // Loading state, you can show a loading spinner or message
-        return (
-            <Navigate state={location.pathname} to='/login' replace />
-        );
     }
 
-    if (user?.email && data == 'admin') {
-        // User is logged in and is an admin, render the admin content
+
+    else if (!loading && user?.email && data == 'admin') {
         return children;
-    } else if (user?.email && !isAdmin) {
+    }
+    else if (!user?.email && !data) {
         return <Navigate state={location.pathname} to='/login' replace />;
     }
 
