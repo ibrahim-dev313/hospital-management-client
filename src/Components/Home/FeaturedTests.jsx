@@ -13,7 +13,7 @@ const FeaturedTestCard = () => {
     useEffect(() => {
         if (allTests.length) {
             const sortedTests = allTests.slice().sort((a, b) => b.totalBooking - a.totalBooking);
-            console.log(sortedTests);
+            // console.log(sortedTests);
             setMostBookedTests(sortedTests.slice(0, 5));
         }
     }, [allTests]);

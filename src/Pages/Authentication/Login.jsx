@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { pageTitle } from '../../Functions/DynamicTitle';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useProfile from '../../hooks/useProfile';
 
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
     const { login, googleLogin } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
-
+    const [userData] = useProfile()
     const handleLogin = (e) => {
         e.preventDefault()
         const form = event.target
@@ -23,7 +24,12 @@ const Login = () => {
                 const loggedInUser = res.user
                 console.log(loggedInUser);
                 toast.success('Logged In Successfully')
-                navigate(location?.state ? location?.state : '/')
+                if (userData.userType == "admin") {
+                    navigate(location?.state ? location?.state : '/admin')
+                } else {
+                    navigate(location?.state ? location?.state : '/dashboard')
+                }
+
             })
             .catch(err => {
                 console.log(err.message)
