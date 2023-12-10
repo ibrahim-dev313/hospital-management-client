@@ -2,6 +2,10 @@
 
 Welcome to Al Shifa Diagnostics, your all-in-one platform for diagnostic test management. This web application provides a seamless experience for users to book tests, apply promo codes, and make secure payments. Additionally, it includes a powerful admin dashboard for managing tests, reports, users, and banners.
 
+## Live Link
+
+Explore the live application: [Al Shifa Diagnostics](https://alshifa-diagnostics-mi1357.netlify.app/)
+
 ## Features
 
 ### User-Facing Features:
@@ -20,9 +24,14 @@ Welcome to Al Shifa Diagnostics, your all-in-one platform for diagnostic test ma
   
 - **Banner Activation:** Toggle banners on and off to control their visibility on the website. Banners can be associated with promo codes for special promotions.
 
-## Usage
+## Technologies Used
 
-Visit [Al Shifa Diagnostics](https://alshifa-diagnostics-mi1357.netlify.app/) to explore the features and schedule your diagnostic tests with ease.
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: Declarative routing for React.js.
+- **React Hook Form**: Performant, flexible, and extensible forms with easy-to-use validation.
+- **Firebase**: A platform developed by Google for creating mobile and web applications.
+- **@stripe/react-stripe-js & @stripe/stripe-js**: Stripe SDK for processing payments securely.
+- **@tanstack/react-query**: Data fetching and state management library for React.
 
 ## How to Run Locally
 
@@ -39,5 +48,3 @@ The application will be accessible at `http://localhost:5173`.
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues and pull requests.
-
-
