@@ -1,4 +1,4 @@
-# Al Shifa Diagnostics
+# Al Shifa Diagnostics || A Hospital Management Website Client Repository
 
 Welcome to Al Shifa Diagnostics, your all-in-one platform for diagnostic test management. This web application provides a seamless experience for users to book tests, apply promo codes, and make secure payments. Additionally, it includes a powerful admin dashboard for managing tests, reports, users, and banners.
 
@@ -29,7 +29,7 @@ Visit [Al Shifa Diagnostics](https://alshifa-diagnostics-mi1357.netlify.app/) to
 To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/ibrahim-dev313/hospital-management-client.git`
-2. Navigate to the project directory: `cd al-shifa-diagnostics`
+2. Navigate to the project directory: `cd hospital-management-client`
 3. add .env config of your own.
 4. Install dependencies: `npm install`
 5. Start the development server: `npm start`
