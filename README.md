@@ -28,17 +28,16 @@ Visit [Al Shifa Diagnostics](https://alshifa-diagnostics-mi1357.netlify.app/) to
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone <repository-url>`
+1. Clone the repository: `git clone https://github.com/ibrahim-dev313/hospital-management-client.git`
 2. Navigate to the project directory: `cd al-shifa-diagnostics`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
+3. add .env config of your own.
+4. Install dependencies: `npm install`
+5. Start the development server: `npm start`
 
-The application will be accessible at `http://localhost:3000`.
+The application will be accessible at `http://localhost:5173`.
 
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues and pull requests.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
